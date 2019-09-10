@@ -1,0 +1,76 @@
+def iJkPlayerVersion = '0.8.8'
+ext {
+
+
+    android = [
+            compileSdkVersion: 28,
+            minSdkVersion    : 19,//原19
+            targetSdkVersion : 28,
+    ]
+
+    dependencies = [
+            "support-v7"                 : 'com.android.support:appcompat-v7:28.0.0',
+            "cardview-v7"                : 'com.android.support:cardview-v7:28.0.0',
+            "recyclerview-v7"            : 'com.android.support:recyclerview-v7:28.0.0',
+            "support-v4"                 : 'com.android.support:support-v4:28.0.0',
+            "multidex"                   : 'com.android.support:multidex:1.0.3',
+            "lottie"                     : 'com.airbnb.android:lottie:2.3.0',
+            "junit"                      : 'junit:junit:4.12',
+            "design"                     : 'com.android.support:design:28.0.0',
+            "constraint-layout"          : 'com.android.support.constraint:constraint-layout:1.0.2',
+
+            // rxjava
+            "rxJava2"                    : 'io.reactivex.rxjava2:rxandroid:2.1.0',
+            "rxKotlin"                   : 'io.reactivex.rxjava2:rxkotlin:2.3.0',
+
+            // rxlifecycle3 已经升级到androidX了，低版本无法使用
+            "rxlifecycle3-kotlin"        : 'com.trello.rxlifecycle3:rxlifecycle-kotlin:3.0.0',
+            "rxlifecycle3-kotlin-android": 'com.trello.rxlifecycle3:rxlifecycle-android-lifecycle-kotlin:3.0.0',
+            "rxlifecycle3"               : 'com.trello.rxlifecycle3:rxlifecycle-components:3.0.0',
+
+            "rxlifecycle":                           'com.github.nekocode.rxlifecycle:rxlifecycle:2.0',
+            //rx permission
+            "rxPermissions"              : 'com.github.tbruyelle:rxpermissions:0.10.2',
+
+            //OKHTTP
+            "retrofit2"                  : 'com.squareup.retrofit2:retrofit:2.5.0',
+            "retrofit2-gson"             : 'com.squareup.retrofit2:converter-gson:2.5.0',
+            "retrofit2-adapter-rxjava"   : 'com.squareup.retrofit2:adapter-rxjava2:2.5.0',
+
+            "butter-knife"               : 'com.jakewharton:butterknife:8.8.1',
+            "butter-knife-compiler"      : 'com.jakewharton:butterknife-compiler:8.8.1',
+            "butter-knife-plugin"        : 'com.jakewharton:butterknife-gradle-plugin:8.8.1',//Lib依赖库使用
+            "roundedimageview"           : 'com.makeramen:roundedimageview:2.3.0',
+            "SwipeDelMenuLayout"         : 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.2.5',
+            "flexbox"                    : 'com.google.android:flexbox:0.3.1',
+            "album"                      : 'com.yanzhenjie:album:2.0.2',
+            "usedlibrary:used"           : 'com.github.Daimhim.usedlibrary:used:1.0.5-alpha-1',
+
+
+            "greendao"                   : 'org.greenrobot:greendao:3.2.2',
+            "PickerView"                 : 'com.contrarywind:Android-PickerView:3.2.6',
+            "durban"                     : 'com.yanzhenjie:durban:1.0.1',
+            "core"                       : 'com.google.zxing:core:3.3.0',
+            "qrcodecore"                 : 'cn.bingoogolapple:bga-qrcodecore:1.1.8@aar',
+            "zxing"                      : 'cn.bingoogolapple:bga-zxing:1.1.8@aar',
+            "PhotoView"                  : 'com.github.chrisbanes:PhotoView:2.0.0',
+            "richtext"                   : 'com.zzhoujay.richtext:richtext:3.0.5',
+            "pinyin4j"                   : 'com.github.open-android:pinyin4j:2.5.0',
+            "SmartRefreshLayout"         : 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3',
+            "baidu.mobstat"              : 'com.baidu.mobstat:mtj-sdk:latest.integration',
+            "tinypinyin"                 : 'com.github.promeg:tinypinyin:1.0.0',
+//            "fastjson"                   : 'com.alibaba:fastjson:1.2.34',
+            "gson"                       : 'com.google.code.gson:gson:2.8.5',
+            "glide"                      : 'com.github.bumptech.glide:glide:4.7.1',
+            "glide-compiler"             : 'com.github.bumptech.glide:compiler:4.7.1',
+            "overscroll-decor"           : 'me.everything:overscroll-decor-android:1.0.4',
+            "glide-transformations"      : 'jp.wasabeef:glide-transformations:2.0.2',
+            "ShortcutBadger"             : "me.leolin:ShortcutBadger:1.1.17@aar",
+
+            //流媒体框架 ijkPlayer blibili 开源
+            "ijkplayer"                  : "tv.danmaku.ijk.media:ijkplayer-java:$iJkPlayerVersion",
+            "ijkplayer-armv5"            : "tv.danmaku.ijk.media:ijkplayer-armv5:$iJkPlayerVersion",
+            "ijkplayer-armv7a"           : "tv.danmaku.ijk.media:ijkplayer-armv7a:$iJkPlayerVersion",
+            "ijkplayer-x86"              : "tv.danmaku.ijk.media:ijkplayer-x86:$iJkPlayerVersion",
+    ]
+}
