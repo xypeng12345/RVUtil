@@ -12,6 +12,12 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
+        //jcenter上传所需库 目前支持4.X版本  https://github.com/dcendents/android-maven-gradle-plugin
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+
+        //上传jcenter所需插件  https://github.com/bintray/gradle-bintray-plugin
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.1'
     }
 }
 

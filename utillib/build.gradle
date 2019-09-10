@@ -36,3 +36,87 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+
+
+/** 以下开始是将Android Library上传到jcenter的相关配置**/
+
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+
+
+
+def siteUrl = 'https://github.com/xypeng12345/RVUtil'    // 项目主页
+def gitUrl = 'https://github.com/xypeng12345/RVUtil.git' // 项目的git地址
+group = 'cn.xuyuan.aglie'	// 所在组
+def module_name = 'RvUtil'	// 项目的名称
+version = "1.0"	//aar的版本号
+/**  上面配置后上传至jcenter后的编译路径是这样的： compile 'cn.xuyuan.galie:RvUtil:1.0'  **/
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                name 'RVUtil' // 名称
+                url siteUrl
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0' // 开源协议名称
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt' // 协议地址
+                    }
+                }
+                developers {
+                    developer {
+                        id 'xuyuan'	// 账号
+                        name 'xuyuan'	// 名称
+                        email 'xypeng12345@gmail.com' // 邮箱地址
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+//生成源文件
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+//生成文档
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+//文档打包成jar
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    // 读取配置文件中的用户名和key
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+    pkg {
+        repo = "aglie"		// 你在bintray上创建的库的名称
+        name = module_name               // 在jcenter中的项目名称
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}
